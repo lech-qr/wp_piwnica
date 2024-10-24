@@ -1,0 +1,126 @@
+﻿// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    body {
+        main {
+            flex-direction: row;
+            width: 100%;
+
+            aside {
+                width: 50vw;
+
+                header {
+                    flex-direction: row;
+                    padding: 1rem 0 1rem 1rem;
+
+                    >nav {
+                        position: relative;
+                        width: auto;
+                        height: auto;
+                        top: 0 !important;
+
+                        ul {
+                            flex-direction: row;
+
+                            li {
+                                a {
+                                    font-size: 1.1rem;
+                                    padding: 1rem 2rem;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #ffffffee;
+
+                        #logo_pk {
+                            #scare {
+                                fill: brown;
+                            }
+
+                            #letters {
+                                fill: black;
+                            }
+                        }
+
+                        #icon-menu {
+                            span {
+                                background-color: black;
+                            }
+                        }
+
+                        nav {
+                            height: auto;
+                            background-color: transparent;
+                            transition: .5s;
+
+                            ul {
+
+                                li {
+                                    a {
+                                        padding: 1rem 2rem;
+                                        color: #000;
+
+                                        &:after {
+                                            background-color: black;
+                                        }
+
+                                        &:hover {
+                                            &:after {
+                                                width: 100%;
+                                                background-color: black;
+                                                transition: .3s;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .stage {
+                    position: absolute;
+                    top: 0;
+                    width: 50vw;
+                    height: 100%;
+                    margin-top: 0;
+                    background-position: center;
+
+                    h1 {
+                        font-size: 5rem;
+                        margin: 0;
+                    }
+
+                    .actor {
+                        width: 50vw;
+                        background-size: cover;
+                    }
+                }
+            }
+
+            section {
+                width: 50vw;
+
+                span.after {
+                    width: 50vw;
+                }
+            }
+        }
+    }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}
