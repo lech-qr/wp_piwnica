@@ -1,6 +1,18 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
 
+.accordion-button {
+    &:not(.collapsed) {
+        --bs-accordion-active-bg: #501111;
+        --bs-accordion-active-color: white;
+        --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 white;
+    }
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -8,6 +20,8 @@ html {
 
 @trans-in: 0.5s;
 @trans-out: 0.3s;
+
+@aside_h: 40vh;
 
 body {
 
@@ -38,9 +52,21 @@ body {
         height: 100%;
         min-height: 100vh;
 
+        span.after {
+            position: fixed;
+            top: 0;
+            display: block;
+            width: 100%;
+            min-height: calc(100vh - @aside_h);
+            height: 100%;
+            transition: .3s;
+            z-index: -1;
+        }
+
         aside {
             position: relative;
             width: 100vw;
+            height: @aside_h;
             background-color: brown;
 
             header {
@@ -67,10 +93,12 @@ body {
                 }
 
                 #icon-menu {
+                    display: block;
+                    aspect-ratio: 1 / 1;
                     width: 10%;
                     position: relative;
-                    margin-top: -7%;
                     cursor: pointer;
+                    @icon_h: 33%;
 
                     span {
                         display: block;
@@ -89,22 +117,22 @@ body {
                         transition: .25s ease-in-out;
 
                         &:nth-child(1) {
-                            top: 0;
+                            top: .5 * @icon_h;
                         }
 
                         &:nth-child(2),
                         &:nth-child(3) {
-                            top: 12px;
+                            top: 1.5 * @icon_h;
                         }
 
                         &:nth-child(4) {
-                            top: 24px;
+                            top: 2.5 * @icon_h;
                         }
                     }
 
                     &.open span {
                         &:nth-child(1) {
-                            top: 12px;
+                            top: 1.5 * @icon_h;
                             width: 0;
                             left: 50%;
                         }
@@ -124,7 +152,7 @@ body {
                         }
 
                         &:nth-child(4) {
-                            top: 12px;
+                            top: 1.5 * @icon_h;
                             width: 0;
                             left: 50%;
                         }
@@ -273,15 +301,15 @@ body {
                 justify-content: center;
                 margin-top: -8rem;
                 width: 100vw;
-                height: 50vh;
+                height: @aside_h;
                 overflow: hidden;
 
                 .actor {
                     animation: kenburns 21s linear infinite;
-                    background-size: contain;
-                    background-position: unset;
+                    background-size: cover;
+                    background-position: center;
                     width: 100vw;
-                    height: 100vh;
+                    height: @aside_h;
                     inset: 0;
                     opacity: 0;
                     position: absolute;
@@ -329,23 +357,15 @@ body {
             flex-direction: column;
             justify-content: center;
             width: 100vw;
+            min-height: calc(90vh - @aside_h);
             padding: 2rem 0;
             background-color: white;
 
             -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
             animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
 
-            span.after {
-                position: fixed;
-                top: 0;
-                display: block;
-                width: 100%;
-                height: 100vh;
-                transition: .3s;
-                z-index: -1;
-            }
-
             article {
+
                 a {
                     text-decoration: none;
                     color: var(--bs-body-color);
@@ -357,8 +377,10 @@ body {
             }
         }
 
-        footer.container {
-            background-color: brown;
+        footer {
+            // Wersja mobilna
+            background-color: #501111;
+
 
         }
     }
@@ -372,12 +394,12 @@ body {
 }
 
 footer {
-    position: absolute;
-    z-index: 3;
-    bottom: 0;
     text-align: center;
-    -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
-    animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+
+    >* {
+        -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+        animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+    }
 
     p {
         margin: 0;

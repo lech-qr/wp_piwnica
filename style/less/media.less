@@ -8,14 +8,24 @@
 @media (min-width: 768px) {}
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    @aside_h: 100vh;
+    @m_padding: .75rem;
+
     body {
+        overflow-x: hidden;
+
         main {
             flex-direction: row;
             width: 100%;
 
             aside {
+                position: fixed;
                 width: 50vw;
+                height: @aside_h;
 
                 header {
                     flex-direction: row;
@@ -36,7 +46,7 @@
 
                                 a {
                                     font-size: 1.1rem;
-                                    padding: 1rem 2rem;
+                                    padding: 1rem @m_padding;
                                 }
 
                                 &.menu-item-type-custom {
@@ -86,7 +96,7 @@
 
                                 li {
                                     a {
-                                        padding: 1rem 2rem;
+                                        padding: 1rem @m_padding;
                                         color: #000;
 
                                         i {
@@ -143,7 +153,7 @@
 
                 .stage {
                     width: 50vw;
-                    height: 100%;
+                    height: @aside_h;
                     margin-top: -8rem;
                     background-position: center;
 
@@ -154,14 +164,22 @@
 
                     .actor {
                         width: 50vw;
-                        background-size: cover;
+                        height: @aside_h;
                     }
 
+                    footer {
+                        position: absolute;
+                        z-index: 3;
+                        bottom: 0;
+                        background-color: transparent;
+                    }
 
                 }
             }
 
             section {
+                position: relative;
+                left: 50vw;
                 width: 50vw;
 
                 span.after {
@@ -172,8 +190,49 @@
     }
 }
 
-// X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {
+    @m_padding: 2rem;
+
+    body {
+
+        main {
+
+            aside {
+
+                header {
+
+                    >nav {
+
+                        ul {
+
+                            li {
+
+                                a {
+
+                                    padding: 1rem @m_padding;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        >nav {
+
+                            ul {
+
+                                li {
+
+                                    a {
+
+                                        padding: 1rem @m_padding;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

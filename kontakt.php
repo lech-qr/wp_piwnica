@@ -6,7 +6,6 @@ Template Name: Kontakt
 
 <?php get_header(); ?>
   <section>
-    <span class="after"></span>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <article class="col-10 align-self-center">
         <?php the_content(); ?>
@@ -18,5 +17,8 @@ Template Name: Kontakt
       </article>
     <?php endif; ?>
   </section>
+  <footer class="d-xl-none">
+    <?php include("footer_content.php"); ?>
+  </footer>
 </main>
 <?php get_footer(); ?>

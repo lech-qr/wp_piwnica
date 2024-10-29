@@ -13,7 +13,7 @@
             let margin_top = -8 * 16 + header_h;
             $('body main aside .stage').css('margin-top', margin_top);
             $('body main aside header nav').css('height', 'auto');
-            $('body main section span.after').css({ 'z-index': '1', 'background-color': '#000000cc' });
+            $('body main span.after').css({ 'z-index': '1', 'background-color': '#000000cc' });
             tmpMenu = 1;
         } else {
             $('body header').removeClass('show');
@@ -21,9 +21,21 @@
             setTimeout(function () {
                 $('body main aside header nav').css('height', '0');
             }, 300);
-            $('body main section span.after').css({ 'z-index': '-1', 'background-color': 'transparent' });
+            $('body main span.after').css({ 'z-index': '-1', 'background-color': 'transparent' });
             tmpMenu = 0;
         }
+    });
+
+    // Zamknij menu klikając w span.after
+    $('body main span.after').click(function () {
+        $('#icon-menu').removeClass('open');
+        $('body header').removeClass('show');
+        $('body main aside .stage').css('margin-top', '-8rem');
+        setTimeout(function () {
+            $('body main aside header nav').css('height', '0');
+        }, 300);
+        $('body main span.after').css({ 'z-index': '-1', 'background-color': 'transparent' });
+        tmpMenu = 0;
     });
 
     // Zdjęcia w losowej kolejności
