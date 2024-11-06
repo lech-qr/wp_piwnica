@@ -37,6 +37,7 @@
                 <div class="actor" id="actor_1"></div>
                 <div class="actor" id="actor_2"></div>
                 <div class="actor" id="actor_3"></div>            
+                <div class="actor" id="actor_4"></div>            
                 <footer class="d-none d-xl-block">
                     <?php include("footer_content.php"); ?>
                 </footer>                

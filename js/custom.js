@@ -42,7 +42,8 @@
     const images = [
         '/wp-content/themes/piwnica-kata/images/piwnica_kata_1.webp',
         '/wp-content/themes/piwnica-kata/images/piwnica_kata_2.webp',
-        '/wp-content/themes/piwnica-kata/images/piwnica_kata_3.webp'
+        '/wp-content/themes/piwnica-kata/images/piwnica_kata_3.webp',
+        '/wp-content/themes/piwnica-kata/images/piwnica_kata_4.webp'
     ];
     // Shuffle the images array
     function shuffle(array) {
@@ -58,8 +59,24 @@
     console.log(`1 ${shuffledImages[0]}`);
     console.log(`2 ${shuffledImages[1]}`);
     console.log(`3 ${shuffledImages[2]}`);
+    console.log(`4 ${shuffledImages[3]}`);
 
     $('#actor_1').css('background-image', `url(${shuffledImages[0]})`);
     $('#actor_2').css('background-image', `url(${shuffledImages[1]})`);
     $('#actor_3').css('background-image', `url(${shuffledImages[2]})`);
+    $('#actor_4').css('background-image', `url(${shuffledImages[3]})`);
+
+    // Cookies
+    if (typeof $.cookie('acceptCookie') == 'undefined') {
+        $('.cookies').show();
+        let cookies_H = $('.cookies').outerHeight();
+        // console.log(cookies_H);
+        // $('footer').css('margin-bottom', cookies_H);
+    }
+
+    $('.cookies .col-1').click(function () {
+        $('.cookies').slideUp();
+        $.cookie('acceptCookie', 1, { expires: 365 });
+        // $('footer').css('margin-bottom', '0');
+    });
 });
